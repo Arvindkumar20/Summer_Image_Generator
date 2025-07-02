@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  color: red;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: black;
+  color: white;
+  padding: 6px 20px;
+}
+
+.img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  color: red;
+
+}
+
+
+.header div button {
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  border: none;
+}
+
+.query-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-container img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* query form style here  */
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: 6% auto;
+  padding: 25px 20px;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  gap: 10px;
+  box-shadow: 1px 1px 2px black;
+  height: 300px;
+  text-align: center;
+
+  & input {
+    padding: 10px 6px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  & textarea {
+    padding: 4px 6px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+
+  & button {
+    padding: 14px 0px;
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: red;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+
+
+  }
+}
+
+/* footer   */
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
