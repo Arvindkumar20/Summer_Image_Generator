@@ -30,27 +30,36 @@ body {
   color: red;
 
 }
-
-
-.header div button {
-  padding: 6px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  background: blue;
-  color: white;
-  border: none;
+/* header btn  */
+.btn{
+  padding: 14px 0px;
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgb(222, 134, 10);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
 }
+
+
 
 .query-form {
   display: flex;
+  margin: 6% auto;
+align-items: center;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .image-container img {
-  width: 400px;
-  height: 300px;
+  display: flex;
+  margin: 0 auto;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -61,8 +70,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  margin: 6% auto;
+  width: 350px;
   padding: 25px 20px;
   border-radius: 10px;
   background: white;
@@ -110,6 +118,64 @@ body {
   }
 }
 
+/* history style   */
+.image-container-prt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  flex-wrap: wrap;
+  margin: 0px auto;
+}
+.history{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ margin: 20px auto;
+}
+.history h1{
+  color: blue;
+  font-weight: 900;
+  font-size: 25px;
+  text-align: center;
+}
+.history .search-form {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2px;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+padding: 5px;
+width: 50%;
+
+& input {
+  padding: 10px 0px;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 200;
+  color: black;
+  background: transparent;
+}
+& button {
+  border-radius: 5px;
+  border:none;
+  outline: none;
+  cursor: pointer;
+  background: #fff;
+  color: black;
+  background: transparent;
+
+}
+
+}
 /* footer   */
 
 .footer {
