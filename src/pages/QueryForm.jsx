@@ -13,7 +13,7 @@ export const QueryForm = () => {
           />
 
           <div>
-            <button>submit</button>
+            <button className="capitalize">submit</button>
           </div>
         </form>
 

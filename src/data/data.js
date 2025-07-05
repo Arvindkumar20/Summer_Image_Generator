@@ -29,4 +29,31 @@ export const history = [
     prompt: "nature",
     date: "3/07/2025",
   },
+
+   {
+    url: "https://my.alfred.edu/zoom/_images/foster-lake.jpg",
+    author: "singh ",
+    prompt: "nature",
+    date: "3/07/2025",
+  }, {
+    url: "https://my.alfred.edu/zoom/_images/foster-lake.jpg",
+    author: "singh ",
+    prompt: "nature",
+    date: "3/07/2025",
+  }, {
+    url: "https://my.alfred.edu/zoom/_images/foster-lake.jpg",
+    author: "singh ",
+    prompt: "nature",
+    date: "3/07/2025",
+  }, {
+    url: "https://my.alfred.edu/zoom/_images/foster-lake.jpg",
+    author: "singh ",
+    prompt: "nature",
+    date: "3/07/2025",
+  }, {
+    url: "https://my.alfred.edu/zoom/_images/foster-lake.jpg",
+    author: "singh ",
+    prompt: "nature",
+    date: "3/07/2025",
+  },
 ];
