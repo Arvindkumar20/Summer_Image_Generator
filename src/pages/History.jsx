@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoPlayForward, IoSearch } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
-
+import axios from "axios";
 import { MdDownloadForOffline } from "react-icons/md";
 import { history } from "../data/data";
 export default function History() {
@@ -11,6 +11,17 @@ export default function History() {
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
+  };
+
+  // utils/download.js
+
+  const downloadImage = (url, filename = "image.jpg") => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   useEffect(() => {
@@ -32,25 +43,30 @@ export default function History() {
     }
   }, [searchTerm]);
 
-  const handleDownload = (address) => {
-    console.log(address);
+  const handleDownload = (url) => {
+    downloadImage(url, "image.jpg");
   };
+
+  const loadImages = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:3000/api/image/get-history"
+      );
+      console.log(res.data);
+      setFilteredHistory(res.data.history);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    loadImages();
+  }, []);
 
   return (
     <div className="mx-2">
       <section className="history">
         <h1>Generated images</h1>
-        {/* <div className="flex items-start justify-start gap-0 bg-white p-2 rounded-md border border-gray-300 ">
-          <div className="outline-none border-none w-full p-2 items-start">
-            <CiSearch size={23} />
-          </div>
-          <input
-            type="text"
-            placeholder="Search"
-            onChange={handleChange}
-            className="outline-none border-none w-full p-2"
-          />
-        </div> */}
 
         <div className="flex items-center justify-start gap-2 bg-white p-2 rounded-xl border-2 border-gray-300 text-black sm:w-1/2 w-full">
           <button>
@@ -74,7 +90,9 @@ export default function History() {
               <img src={image.url} alt={image.prompt} />
               <span className="image-details">
                 <h3 className="author">{image.author}</h3>
-                <h3 className="date">{image.date}</h3>
+                <h3 className="date">
+                  {image?.createdAt?.split("T")[0]?.split("-")?.reverse()?.join("-")}
+                </h3>
               </span>
               <span className="image-details">
                 <h3 className="prompt">{image.prompt}</h3>
