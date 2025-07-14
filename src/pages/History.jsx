@@ -43,17 +43,18 @@ export default function History() {
     }
   }, [searchTerm]);
 
+
   const handleDownload = (url) => {
     downloadImage(url, "image.jpg");
   };
-
+// api calling 
   const loadImages = async () => {
     try {
       const res = await axios.get(
         "http://localhost:3000/api/image/get-history"
       );
-      console.log(res.data);
-      setFilteredHistory(res.data.history);
+      console.log(res?.data);
+      setFilteredHistory(res?.data?.history);
     } catch (error) {
       console.log(error);
     }
