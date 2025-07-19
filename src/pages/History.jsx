@@ -6,7 +6,6 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { history } from "../data/data";
 export default function History() {
   const [searchTerm, setSearchTerm] = useState("");
-
   const [FiltredHistory, setFilteredHistory] = useState(history);
 
   const handleChange = (e) => {
@@ -53,7 +52,7 @@ export default function History() {
       const res = await axios.get(
         "http://localhost:3000/api/image/get-history"
       );
-      console.log(res?.data);
+      // console.log(res?.data);
       setFilteredHistory(res?.data?.history);
     } catch (error) {
       console.log(error);

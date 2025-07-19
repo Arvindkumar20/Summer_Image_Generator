@@ -1,14 +1,13 @@
 import { useState } from "react";
-
+import axios from "axios";
 export const QueryForm = () => {
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(
+    "https://my.alfred.edu/zoom/_images/foster-lake.jpg"
+  );
   const [prompt, setPrompt] = useState("");
   const [author, setAuthor] = useState("");
   const [loader, setLoader] = useState(false);
 
-  const handleUrlChange = (e) => {
-    setUrl(e.target.value);
-  };
   const handleAuthorChange = (e) => {
     setAuthor(e.target.value);
   };
@@ -20,14 +19,26 @@ export const QueryForm = () => {
   const generateImage = async (e) => {
     setLoader(true);
     e.preventDefault();
-    console.log(url);
-    console.log(author);
-    console.log(prompt);
+
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/api/image/generate-image",
+        {
+          author,
+          prompt,
+        }
+      );
+      console.log(res);
+      setUrl(res?.data?.image?.url);
+    } catch (error) {
+      console.log(error);
+      setLoader(false);
+    }
 
     setAuthor("");
     setPrompt("");
-    setUrl("");
-    // setLoader(false);
+    // setUrl("");
+    setLoader(false);
   };
 
   return (
@@ -43,15 +54,6 @@ export const QueryForm = () => {
             value={author}
             required
             className="capitalize"
-          />
-          <input
-            type="text"
-            id="url"
-            name="url"
-            value={url}
-            required
-            placeholder="Enter your url..."
-            onChange={handleUrlChange}
           />
 
           <textarea
@@ -74,10 +76,7 @@ export const QueryForm = () => {
         </form>
 
         <div className="image-container">
-          <img
-            src={url||"https://my.alfred.edu/zoom/_images/foster-lake.jpg"}
-            alt="generated here"
-          />
+          <img src={url} alt="generated here" className="w-full h-full object-cover"/>
         </div>
       </div>
     </>

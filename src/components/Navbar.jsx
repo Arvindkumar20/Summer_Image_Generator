@@ -1,6 +1,7 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 export const Navbar = ({ name, age, email }) => {
   const url = useLocation();
+  // const {id}=useParams;
 
   return (
     <>
